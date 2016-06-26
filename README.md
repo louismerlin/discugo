@@ -11,4 +11,4 @@ terminal from the root of the project:
 docker-compose build
 docker-compose up
 ```
-You can then browse to [localhost:7890/anything](localhost:7890/anything).
+You can then browse to [localhost:7890/anything](http://localhost:7890/anything).
