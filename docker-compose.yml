@@ -1,0 +1,12 @@
+version: '2'
+services:
+  users-service:
+    build: ./users
+    ports:
+     - "7890:7890"
+    depends_on:
+     - redis
+    environment:
+     - DATABASE_HOST=redis
+  redis:
+    image: redis
