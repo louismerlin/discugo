@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Disc</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/discu.css">
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+</head>
+<body>
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div id="discutainer" class="container">
+		<div id="namerow" class="row">
+			<p>identity: <input type=text id="name"/></p>
+		</div>
+    <div id="discurow" class="row">
+			<div id="messageSection" class="twelve columns">
+				<div id="messageList">
+      	</div>
+				<form id="messageWriter" onsubmit="submitText(); return false;">
+					<input type="text" id="messageInput" autofocus/>
+					<input type="submit" id="messageButton" value="SEND"/>
+				</form>
+			</div>
+    </div>
+  </div>
+
+	<!-- Javascript
+	------------------------------------------------- -->
+	<script src="js/main.js"></script>
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+</html>

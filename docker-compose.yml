@@ -1,12 +1,29 @@
 version: '2'
 services:
-  users-service:
-    build: ./users
+
+  web:
+    build: ./web
     ports:
-     - "7890:7890"
+     - "8080:8080"
+
+  websocket:
+    build: ./websocket
+    ports:
+     - "8081:8081"
     depends_on:
-     - redis
+     - db
     environment:
-     - DATABASE_HOST=redis
-  redis:
-    image: redis
+     - DATABASE_HOST=db
+#    networks:
+#     - back
+
+  db:
+    build: ./db
+    ports:
+     - "5432"
+    networks:
+     - back
+
+networks:
+  back:
+    driver: bridge

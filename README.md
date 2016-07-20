@@ -1,5 +1,5 @@
 # discugo
-Go + Redis + Websocket + Docker
+Go + Postgres + Websocket + Docker
 
 ## State of things
 No websocket for the moment, nor anything other than a static page...
