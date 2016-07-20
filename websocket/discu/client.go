@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io"
 	"log"
+	"time"
 
 	"golang.org/x/net/websocket"
 )
@@ -104,6 +105,7 @@ func (c *Client) listenRead() {
 			} else if err != nil {
 				c.server.Err(err)
 			} else {
+				msg.TimeSent = time.Now()
 				c.server.SendAll(&msg)
 			}
 		}
