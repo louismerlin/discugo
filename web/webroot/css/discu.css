@@ -30,6 +30,20 @@ html, body {
 	overflow-y: scroll;
 }
 
+.messageDiv {
+}
+
+.messageLeft {
+	float: left;
+	margin: 0;
+}
+
+.messageRight {
+	float: right;
+	color: grey;
+	margin: 0;
+}
+
 #messageWriter {
 	height: 64px;
 	flex-shrink: 0;
