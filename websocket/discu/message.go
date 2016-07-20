@@ -1,8 +1,11 @@
 package discu
 
+import "time"
+
 type Message struct {
-	Author string `json:"author"`
-	Body   string `json:"body"`
+	Author		string `json:"author"`
+	Body			string `json:"body"`
+	TimeSent	time.Time
 }
 
 func (self *Message) String() string {
