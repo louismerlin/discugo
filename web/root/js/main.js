@@ -13,7 +13,7 @@ ws.onerror = function(ev) {
 ws.onmessage = function(event) {
 	console.log("Recieved " + event.data);
 	message = JSON.parse(event.data);
-	messageList.innerHTML += '<div class="messageDiv"><p class="messageLeft"><b>'+message.author+':</b> '+message.body+'<br/></p><p class="messageRight">('+message.TimeSent.slice(11,19)+')</p><div style="clear:both"></div></div>';
+	messageList.innerHTML += '<div class="messageDiv"><div class="messageLeft"><p>'+message.author+':&nbsp;</p></div><div class="messageCenter"><p>'+message.body+'</p></div><div class="messageRight"><p>&nbsp;('+message.TimeSent.slice(11,19)+')</p></div></div>';
 	messageList.scrollTop = messageList.scrollHeight;
 }
 

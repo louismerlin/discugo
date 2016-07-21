@@ -30,14 +30,14 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <div id="discutainer" class="container">
 		<div id="namerow" class="row">
-			<p>identity: <input type=text id="name"/></p>
+			<p>identity: <input type=text id="name" maxlength="16"/></p>
 		</div>
     <div id="discurow" class="row">
 			<div id="messageSection" class="twelve columns">
 				<div id="messageList">
       	</div>
 				<form id="messageWriter" onsubmit="submitText(); return false;">
-					<input type="text" id="messageInput" autofocus/>
+					<input type="text" id="messageInput" maxlength="140" autofocus/>
 					<input type="submit" id="messageButton" value="SEND"/>
 				</form>
 			</div>
