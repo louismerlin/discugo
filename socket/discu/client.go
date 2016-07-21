@@ -104,7 +104,7 @@ func (c *Client) listenRead() {
 				c.doneCh <- true
 			} else if err != nil {
 				c.server.Err(err)
-			} else {
+			} else if len(msg.Body) <= 140 && len(msg.Author) <= 16 {
 				msg.TimeSent = time.Now()
 				c.server.SendAll(&msg)
 			}

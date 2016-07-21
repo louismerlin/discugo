@@ -28,20 +28,27 @@ html, body {
 
 #messageList {
 	overflow-y: scroll;
+	overflow-x: hidden;
 }
 
 .messageDiv {
+	display: flex;
+	flex-direction: row;
 }
 
 .messageLeft {
-	float: left;
-	margin: 0;
+	flex-shrink: 0;
+	font-weight: bold;
+}
+
+.messageCenter {
+	flex-grow: 1;
+	word-break: break-all;
 }
 
 .messageRight {
-	float: right;
+	flex-shrink: 0;
 	color: grey;
-	margin: 0;
 }
 
 #messageWriter {
