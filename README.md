@@ -15,7 +15,6 @@ docker-compose up
 You can then browse to [localhost:8080](http://localhost:8080/).
 
 ## TODO
- - Add character limit (html+server+db)
  - Store everything in the database
  - Add multi-channel support
  - Add user system (not a priority)
