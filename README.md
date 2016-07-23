@@ -14,6 +14,8 @@ docker-compose up
 ```
 You can then browse to [localhost:8080](http://localhost:8080/).
 
+If you decide to make changes to the database scheme, make sure to `docker-compose rm db` before building and starting the project.
+
 ## TODO
  - Add multi-channel support
  - Add user system (not a priority)
