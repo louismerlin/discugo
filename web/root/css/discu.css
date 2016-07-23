@@ -27,8 +27,8 @@ html, body {
 }
 
 #messageList {
-	overflow-y: scroll;
-	overflow-x: hidden;
+/*	overflow-y: scroll;
+	overflow-x: hidden;*/
 }
 
 .messageDiv {
@@ -73,4 +73,21 @@ html, body {
 }
 
 .channel {
+}
+
+.channelDiv {
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+.channelDivInvis {
+	visibility: hidden;
+	height: 0;
+}
+
+.chSelectYes {
+	font-weight: bold;
+}
+
+.chSelectNo {
+	color: black;
 }

@@ -104,7 +104,7 @@ func (c *Client) listenRead() {
 				c.doneCh <- true
 			} else if err != nil {
 				c.server.Err(err)
-			} else if len(msg.Body) <= 140 && len(msg.Author) <= 16 {
+			} else if len(msg.Body) <= 140 && len(msg.Author) <= 16 && len(msg.Channel) <= 16 {
 				msg.TimeSent = time.Now()
 
 				err := c.server.storeMessage(&msg)

@@ -82,12 +82,13 @@ func (s *Server) sendPastMessages(c *Client) {
 			var id int
 			var author string
 			var body string
+			var channel string
 			var time_sent time.Time
-			err = rows.Scan(&id, &author, &body, &time_sent)
+			err = rows.Scan(&id, &author, &body, &channel, &time_sent)
 			if err != nil {
 				s.Err(err)
 			} else {
-				msg := &Message{author, body, time_sent}
+				msg := &Message{author, body, channel, time_sent}
 				c.Write(msg)
 			}
 		}
@@ -105,8 +106,8 @@ func (s *Server) sendAll(msg *Message) {
 }
 
 func (s *Server) storeMessage(msg *Message) error {
-	_, err := s.db.Query(`INSERT INTO messages (user_name, body, time_sent)
-	VALUES($1, $2, $3)`, msg.Author, msg.Body, msg.TimeSent)
+	_, err := s.db.Query(`INSERT INTO messages (user_name, body, channel, time_sent)
+	VALUES($1, $2, $3, $4)`, msg.Author, msg.Body, msg.Channel, msg.TimeSent)
 	return err
 }
 
