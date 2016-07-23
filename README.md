@@ -2,7 +2,8 @@
 Go + Postgres + Websocket + Docker
 
 ## State of things
-Single channel chat, and no Postgres link for the moment...
+Single channel chat...
+
 Also, identity is completely absent (or completely present, depending on your point of view :japanese_ogre:).
 
 ## Building and running
