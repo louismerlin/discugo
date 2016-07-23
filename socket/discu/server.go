@@ -3,25 +3,29 @@ package discu
 import (
 	"log"
 	"net/http"
+	"database/sql"
+	"time"
 
 	"golang.org/x/net/websocket"
+	_ "github.com/lib/pq"
 )
 
 // Discu server.
 type Server struct {
 	pattern   string
-	messages  []*Message
+	//messages  []*Message
 	clients   map[int]*Client
 	addCh     chan *Client
 	delCh     chan *Client
 	sendAllCh chan *Message
 	doneCh    chan bool
 	errCh     chan error
+	db				*sql.DB
 }
 
 // Create new discu server.
 func NewServer(pattern string) *Server {
-	messages := []*Message{}
+	//messages := []*Message{}
 	clients := make(map[int]*Client)
 	addCh := make(chan *Client)
 	delCh := make(chan *Client)
@@ -29,15 +33,22 @@ func NewServer(pattern string) *Server {
 	doneCh := make(chan bool)
 	errCh := make(chan error)
 
+	connection := "dbname=hello user=hello password=coffee host=db port=5432 sslmode=disable"
+	db, err := sql.Open("postgres", connection)
+	if err != nil {
+		log.Fatal(err)
+	}
+
 	return &Server{
 		pattern,
-		messages,
+	//	messages,
 		clients,
 		addCh,
 		delCh,
 		sendAllCh,
 		doneCh,
 		errCh,
+		db,
 	}
 }
 
@@ -62,8 +73,28 @@ func (s *Server) Err(err error) {
 }
 
 func (s *Server) sendPastMessages(c *Client) {
-	for _, msg := range s.messages {
-		c.Write(msg)
+	rows, err := s.db.Query(`SELECT * FROM messages`)
+	if err != nil {
+		s.Err(err)
+	} else {
+		defer rows.Close()
+		for rows.Next() {
+			var id int
+			var author string
+			var body string
+			var time_sent time.Time
+			err = rows.Scan(&id, &author, &body, &time_sent)
+			if err != nil {
+				s.Err(err)
+			} else {
+				msg := &Message{author, body, time_sent}
+				c.Write(msg)
+			}
+		}
+		err = rows.Err() // get any error encountered during iteration
+		if err != nil {
+			s.Err(err)
+		}
 	}
 }
 
@@ -71,6 +102,12 @@ func (s *Server) sendAll(msg *Message) {
 	for _, c := range s.clients {
 		c.Write(msg)
 	}
+}
+
+func (s *Server) storeMessage(msg *Message) error {
+	_, err := s.db.Query(`INSERT INTO messages (user_name, body, time_sent)
+	VALUES($1, $2, $3)`, msg.Author, msg.Body, msg.TimeSent)
+	return err
 }
 
 // Listen and serve.
@@ -113,7 +150,7 @@ func (s *Server) Listen() {
 		// broadcast message for all clients
 		case msg := <-s.sendAllCh:
 			log.Println("Send all:", msg)
-			s.messages = append(s.messages, msg)
+			//s.messages = append(s.messages, msg)
 			s.sendAll(msg)
 
 		case err := <-s.errCh:

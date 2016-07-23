@@ -12,10 +12,8 @@ services:
      - "8081:8081"
     depends_on:
      - db
-    environment:
-     - DATABASE_HOST=db
-#    networks:
-#     - back
+    networks:
+     - back
 
   db:
     build: ./db
