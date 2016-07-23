@@ -20,7 +20,7 @@ ws.onmessage = function(event) {
 	if (chId == -1) {
 		channels.push(message.channel);
 		chId = channels.length - 1;
-		messageList.innerHTML += '<div class="channelDivInvis" id="channel'+chId+'"></div>';
+		document.getElementById("messageSection").innerHTML += '<div class="channelDivInvis" id="channel'+chId+'"></div>';
 		channelList.innerHTML += '<li><a class="chSelectNo" id="chSelect'+chId+'" onclick="selectChannel('+chId+')">#'+message.channel+'</a></li>';
 		if (message.channel == currentChan)
 			selectChannel(chId)

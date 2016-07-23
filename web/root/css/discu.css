@@ -27,8 +27,8 @@ html, body {
 }
 
 #messageList {
-/*	overflow-y: scroll;
-	overflow-x: hidden;*/
+	overflow-y: scroll;
+	overflow-x: hidden;
 }
 
 .messageDiv {
@@ -76,8 +76,10 @@ html, body {
 }
 
 .channelDiv {
-	overflow-y: scroll;
+	/*overflow-y: scroll;*/
 	overflow-x: hidden;
+	order: -1;
+	flex-grow: 1;
 }
 .channelDivInvis {
 	visibility: hidden;
