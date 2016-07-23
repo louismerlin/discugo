@@ -33,7 +33,15 @@
 			<p>identity: <input type=text id="name" maxlength="16"/></p>
 		</div>
     <div id="discurow" class="row">
-			<div id="messageSection" class="twelve columns">
+			<div id="channelSection" class="three columns">
+				<h4>Channels</h4>
+				<ul id="channelList">
+					<li><a href="#">#general</a></li>
+					<li><a href="#">#helloworld</a></li>
+					<li><a href="#">#random</a></li>
+				</ul>
+			</div>
+			<div id="messageSection" class="nine columns">
 				<div id="messageList">
       	</div>
 				<form id="messageWriter" onsubmit="submitText(); return false;">
