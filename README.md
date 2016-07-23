@@ -15,6 +15,5 @@ docker-compose up
 You can then browse to [localhost:8080](http://localhost:8080/).
 
 ## TODO
- - Store everything in the database
  - Add multi-channel support
  - Add user system (not a priority)
