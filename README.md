@@ -18,7 +18,8 @@ You can then browse to [localhost:8080](http://localhost:8080/).
 If you decide to make changes to the database scheme, make sure to `docker-compose rm db` before building and starting the project.
 
 ## TODO
- - Move the frontend to a node container (react)
+ - Add an nginx routing container
+ - Convert the frontend to MitrilJS
  - Add "notifications" (+n next to channel)
  - Better mobile experience
  - Add user system (not a priority)
