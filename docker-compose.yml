@@ -1,27 +1,27 @@
 version: '2'
 services:
 
+  nginx:
+    build: ./nginx
+    depends_on:
+     - web
+     - socket
+    ports:
+     - "8080:80"
+
   web:
     build: ./web
     ports:
-     - "8080:8080"
+     - "8080"
 
   socket:
     build: ./socket
     ports:
-     - "8081:8081"
+     - "8080"
     depends_on:
      - db
-    networks:
-     - back
 
   db:
     build: ./db
     ports:
      - "5432"
-    networks:
-     - back
-
-networks:
-  back:
-    driver: bridge

@@ -10,7 +10,7 @@ RUN go-wrapper install
 #RUN go get golang.org/x/net/websocket
 #RUN go install app
 
-EXPOSE 8081
+EXPOSE 8080
 CMD ["go-wrapper", "run"]
 #ENTRYPOINT /go/bin/app
 #CMD ["go", "run", "/go/src/app/main.go"]

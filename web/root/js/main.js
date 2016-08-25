@@ -1,4 +1,4 @@
-var ws = new WebSocket("ws://localhost:8081/"),
+var ws = new WebSocket("ws://localhost:8080/ws/"),
 		channels = [],
 		channelList = document.getElementById("channelList"),
 		currentChan = "general",

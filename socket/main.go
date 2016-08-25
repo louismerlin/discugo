@@ -15,5 +15,5 @@ func main() {
 	server := discu.NewServer("/")
 	go server.Listen()
 
-	log.Fatal(http.ListenAndServe(":8081", nil))
+	log.Fatal(http.ListenAndServe(":8080", nil))
 }
