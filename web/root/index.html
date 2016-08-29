@@ -30,35 +30,6 @@
 
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <div id="discutainer" class="container">
-    <div id="namerow" class="row">
-      <p>identity:
-        <input type=text id="name" maxlength="16" />
-      </p>
-    </div>
-    <div id="discurow" class="row">
-      <div id="channelSection" class="three columns">
-        <h4>Channels</h4>
-        <ul id="channelList">
-        </ul>
-        #
-        <input type=text id="newChan" maxlength="16" />
-      </div>
-      <div id="messageSection" class="nine columns">
-        <!--				<div id="messageList">
-</div>-->
-        <form id="messageWriter" onsubmit="submitText(); return false;">
-          <div class="row">
-            <div class="nine columns">
-              <input type="text" id="messageInput" class="u-full-width" maxlength="140" autofocus/>
-            </div>
-            <div class="three columns">
-              <input type="submit" id="messageButton" class="u-full-width" value="SEND" />
-            </div>
-        </form>
-        </div>
-      </div>
-    </div>
     <div id="discugo"></div>
 
     <!-- Javascript
@@ -66,11 +37,6 @@
   <script src="js/main.js"></script>
 -->
     <script src="js/mithril.min.js"></script>
-    <script src="js/models/message.js"></script>
-    <script src="js/controllers/message.js"></script>
-    <script src="js/views/main-view.js"></script>
-    <script src="js/views/message-view.js"></script>
-    <script src="js/views/channel-view.js"></script>
     <script src="js/app.js"></script>
 
 
